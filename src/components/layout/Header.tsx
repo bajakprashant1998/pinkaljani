@@ -24,6 +24,9 @@ export const Header = () => {
     setActiveMenu(null);
   }, [location]);
 
+  // Determine if we're on the homepage hero area (not scrolled)
+  const isOnDarkBg = !isScrolled && location.pathname === "/";
+
   return (
     <>
       <header
@@ -32,6 +35,7 @@ export const Header = () => {
             ? "bg-card/95 backdrop-blur-lg shadow-md py-3"
             : "bg-transparent py-5"
         }`}
+        onMouseLeave={() => setActiveMenu(null)}
       >
         <div className="container-wide">
           <div className="flex items-center justify-between">
@@ -41,8 +45,12 @@ export const Header = () => {
                 <span className="text-primary-foreground font-display font-bold text-xl">D</span>
               </div>
               <div className="hidden sm:block">
-                <span className="font-display font-bold text-xl text-foreground">Digital Bull</span>
-                <span className="block text-xs text-muted-foreground -mt-1">Technology Pvt. Ltd.</span>
+                <span className={`font-display font-bold text-xl transition-colors ${isOnDarkBg ? "text-white" : "text-foreground"}`}>
+                  Digital Bull
+                </span>
+                <span className={`block text-xs -mt-1 transition-colors ${isOnDarkBg ? "text-white/70" : "text-muted-foreground"}`}>
+                  Technology Pvt. Ltd.
+                </span>
               </div>
             </Link>
 
@@ -53,12 +61,13 @@ export const Header = () => {
                   key={item.title}
                   className="relative"
                   onMouseEnter={() => setActiveMenu(item.title)}
-                  onMouseLeave={() => setActiveMenu(null)}
                 >
                   <button
                     className={`flex items-center gap-1 px-4 py-2 text-sm font-medium transition-colors rounded-lg ${
                       activeMenu === item.title
-                        ? "text-primary bg-muted"
+                        ? "text-primary bg-white/20"
+                        : isOnDarkBg
+                        ? "text-white hover:text-primary hover:bg-white/10"
                         : "text-foreground hover:text-primary hover:bg-muted/50"
                     }`}
                   >
@@ -71,7 +80,12 @@ export const Header = () => {
 
             {/* CTA Buttons */}
             <div className="hidden lg:flex items-center gap-3">
-              <a href="tel:+911234567890" className="flex items-center gap-2 text-sm font-medium text-foreground hover:text-primary transition-colors">
+              <a 
+                href="tel:+911234567890" 
+                className={`flex items-center gap-2 text-sm font-medium transition-colors ${
+                  isOnDarkBg ? "text-white hover:text-primary" : "text-foreground hover:text-primary"
+                }`}
+              >
                 <Phone className="w-4 h-4" />
                 <span>+91 123 456 7890</span>
               </a>
@@ -83,7 +97,7 @@ export const Header = () => {
 
             {/* Mobile Menu Button */}
             <button
-              className="lg:hidden p-2 rounded-lg hover:bg-muted transition-colors"
+              className={`lg:hidden p-2 rounded-lg transition-colors ${isOnDarkBg ? "text-white hover:bg-white/10" : "hover:bg-muted"}`}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
               {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -91,8 +105,8 @@ export const Header = () => {
           </div>
         </div>
 
-        {/* Mega Menu */}
-        <MegaMenu activeMenu={activeMenu} onClose={() => setActiveMenu(null)} />
+        {/* Mega Menu - Now inside header for proper hover */}
+        <MegaMenu activeMenu={activeMenu} setActiveMenu={setActiveMenu} />
       </header>
 
       {/* Mobile Menu */}
@@ -105,7 +119,7 @@ export const Header = () => {
                 <div key={item.title} className="mb-6">
                   <h3 className="font-display font-bold text-lg text-foreground mb-3">{item.title}</h3>
                   <div className="space-y-2">
-                    {item.items.slice(0, 5).map((subItem) => (
+                    {item.items.map((subItem) => (
                       <Link
                         key={subItem.title}
                         to={subItem.href}
