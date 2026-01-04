@@ -11,6 +11,7 @@ import {
   ArrowRight
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { contactInfo } from "@/data/contactInfo";
 
 const footerLinks = {
   services: [
@@ -99,17 +100,17 @@ export const Footer = () => {
               AI-powered digital growth, marketing, and technology solutions for ambitious businesses worldwide.
             </p>
             <div className="space-y-3">
-              <a href="tel:+911234567890" className="flex items-center gap-3 text-secondary-foreground/70 hover:text-primary transition-colors">
+              <a href={`tel:${contactInfo.phone.replace(/\s/g, "")}`} className="flex items-center gap-3 text-secondary-foreground/70 hover:text-primary transition-colors">
                 <Phone className="w-5 h-5" />
-                <span>+91 123 456 7890</span>
+                <span>{contactInfo.phone}</span>
               </a>
-              <a href="mailto:hello@digitalbull.tech" className="flex items-center gap-3 text-secondary-foreground/70 hover:text-primary transition-colors">
+              <a href={`mailto:${contactInfo.email}`} className="flex items-center gap-3 text-secondary-foreground/70 hover:text-primary transition-colors">
                 <Mail className="w-5 h-5" />
-                <span>hello@digitalbull.tech</span>
+                <span>{contactInfo.email}</span>
               </a>
               <div className="flex items-start gap-3 text-secondary-foreground/70">
-                <MapPin className="w-5 h-5 mt-0.5" />
-                <span>Bangalore, India</span>
+                <MapPin className="w-5 h-5 mt-0.5 flex-shrink-0" />
+                <span>{contactInfo.address}</span>
               </div>
             </div>
           </div>

@@ -1,67 +1,87 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Search, FileSearch, Lightbulb, Rocket } from "lucide-react";
+import { ArrowRight, Search, FileSearch, Lightbulb, Rocket, Target, Users, BarChart3, Zap, Shield, TrendingUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const processSteps = [
   {
     step: "01",
     icon: Search,
-    title: "Discovery & Audit",
-    description: "We start by deeply understanding your business, goals, audience, and competitive landscape. Our comprehensive audit reveals opportunities and quick wins.",
-    details: [
-      "Business & goal alignment workshop",
-      "Technical website audit",
-      "Competitive analysis",
-      "Audience research & personas",
-      "Current performance baseline",
-    ],
+    title: "Discovery & Research",
+    description: "Deep dive into your business, market, and audience to uncover opportunities.",
     href: "/process/discovery",
     color: "from-blue-500 to-cyan-500",
   },
   {
     step: "02",
-    icon: Lightbulb,
-    title: "Strategy Development",
-    description: "Based on our findings, we develop a comprehensive, data-driven strategy with clear KPIs, timelines, and expected outcomes.",
-    details: [
-      "Custom strategy roadmap",
-      "Channel prioritization",
-      "Budget allocation",
-      "KPI framework",
-      "90-day action plan",
-    ],
-    href: "/process/strategy",
-    color: "from-purple-500 to-pink-500",
+    icon: FileSearch,
+    title: "Technical Audit",
+    description: "Comprehensive analysis of your website, SEO, and digital presence.",
+    href: "/process/audit",
+    color: "from-indigo-500 to-blue-500",
   },
   {
     step: "03",
-    icon: Rocket,
-    title: "Execution & Launch",
-    description: "Our expert team executes the strategy with precision, launching campaigns and implementing changes across all channels.",
-    details: [
-      "Campaign setup & launch",
-      "Content creation",
-      "Technical implementation",
-      "Tracking setup",
-      "Quality assurance",
-    ],
-    href: "/process/execution",
-    color: "from-orange-500 to-red-500",
+    icon: Target,
+    title: "Competitive Analysis",
+    description: "Identify competitor strategies and market gaps to exploit.",
+    href: "/process/competitive-analysis",
+    color: "from-purple-500 to-indigo-500",
   },
   {
     step: "04",
-    icon: FileSearch,
-    title: "Optimize & Scale",
-    description: "We continuously monitor, test, and optimize to improve results. As we learn what works, we scale successful initiatives.",
-    details: [
-      "A/B testing",
-      "Performance optimization",
-      "Scaling winning campaigns",
-      "Regular reporting",
-      "Strategy refinement",
-    ],
+    icon: Lightbulb,
+    title: "Strategy Development",
+    description: "Create a custom, data-driven roadmap aligned with your goals.",
+    href: "/process/strategy",
+    color: "from-pink-500 to-purple-500",
+  },
+  {
+    step: "05",
+    icon: Users,
+    title: "Audience Targeting",
+    description: "Define and segment your ideal customers for precision targeting.",
+    href: "/process/audience-targeting",
+    color: "from-rose-500 to-pink-500",
+  },
+  {
+    step: "06",
+    icon: Rocket,
+    title: "Campaign Launch",
+    description: "Deploy campaigns across channels with rigorous quality assurance.",
+    href: "/process/execution",
+    color: "from-orange-500 to-rose-500",
+  },
+  {
+    step: "07",
+    icon: BarChart3,
+    title: "Performance Tracking",
+    description: "Monitor real-time metrics and KPIs across all touchpoints.",
+    href: "/process/tracking",
+    color: "from-amber-500 to-orange-500",
+  },
+  {
+    step: "08",
+    icon: Zap,
+    title: "A/B Testing & Optimization",
+    description: "Continuous testing and refinement to maximize performance.",
     href: "/process/optimization",
-    color: "from-green-500 to-emerald-500",
+    color: "from-yellow-500 to-amber-500",
+  },
+  {
+    step: "09",
+    icon: TrendingUp,
+    title: "Scaling & Growth",
+    description: "Scale winning strategies and expand into new opportunities.",
+    href: "/process/scaling",
+    color: "from-green-500 to-yellow-500",
+  },
+  {
+    step: "10",
+    icon: Shield,
+    title: "Reporting & Insights",
+    description: "Transparent reporting with actionable insights and recommendations.",
+    href: "/process/reporting",
+    color: "from-teal-500 to-green-500",
   },
 ];
 
@@ -76,7 +96,7 @@ export const ProcessSection = () => {
             Our Process
           </span>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-            A Proven <span className="text-primary">4-Step</span> Methodology
+            A Proven <span className="text-primary">10-Step</span> Methodology
           </h2>
           <p className="text-muted-foreground text-lg">
             Our systematic approach has delivered results for 500+ clients across 15+ industries. 
@@ -84,45 +104,31 @@ export const ProcessSection = () => {
           </p>
         </div>
 
-        {/* Process Steps */}
-        <div className="grid md:grid-cols-2 gap-8 mb-12">
-          {processSteps.map((step, index) => (
-            <div 
+        {/* Process Steps Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-4 mb-12">
+          {processSteps.map((step) => (
+            <Link 
               key={step.step}
-              className="bg-card rounded-2xl p-8 shadow-lg border border-border hover:shadow-xl transition-shadow group"
+              to={step.href}
+              className="bg-card rounded-xl p-5 shadow-sm border border-border hover:shadow-lg hover:-translate-y-1 transition-all group"
             >
-              <div className="flex items-start gap-6">
-                <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${step.color} flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform`}>
-                  <step.icon className="w-8 h-8 text-white" />
-                </div>
-                <div className="flex-1">
-                  <div className="flex items-center gap-3 mb-2">
-                    <span className="text-5xl font-display font-bold text-primary/20">{step.step}</span>
-                    <h3 className="font-display font-bold text-xl text-foreground">
-                      {step.title}
-                    </h3>
-                  </div>
-                  <p className="text-muted-foreground mb-4">
-                    {step.description}
-                  </p>
-                  <ul className="space-y-2 mb-4">
-                    {step.details.map((detail) => (
-                      <li key={detail} className="flex items-center gap-2 text-sm text-foreground">
-                        <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-                        {detail}
-                      </li>
-                    ))}
-                  </ul>
-                  <Link 
-                    to={step.href}
-                    className="inline-flex items-center text-primary font-medium text-sm hover:underline"
-                  >
-                    Learn more about this step
-                    <ArrowRight className="w-4 h-4 ml-1" />
-                  </Link>
-                </div>
+              <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${step.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
+                <step.icon className="w-6 h-6 text-white" />
               </div>
-            </div>
+              <div className="flex items-center gap-2 mb-2">
+                <span className="text-2xl font-display font-bold text-primary/30">{step.step}</span>
+                <h3 className="font-display font-bold text-sm text-foreground line-clamp-1">
+                  {step.title}
+                </h3>
+              </div>
+              <p className="text-muted-foreground text-xs line-clamp-2">
+                {step.description}
+              </p>
+              <div className="flex items-center text-primary font-medium text-xs mt-3">
+                Learn more
+                <ArrowRight className="w-3 h-3 ml-1 group-hover:translate-x-1 transition-transform" />
+              </div>
+            </Link>
           ))}
         </div>
 

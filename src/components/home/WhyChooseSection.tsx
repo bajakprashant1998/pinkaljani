@@ -1,13 +1,38 @@
-import { CheckCircle, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
+import { CheckCircle, ArrowRight, Brain, BarChart3, Target, Headphones, Shield, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const features = [
-  "AI-powered campaign optimization",
-  "Real-time performance dashboards",
-  "Multi-channel attribution",
-  "Predictive revenue forecasting",
-  "Automated reporting & insights",
-  "Dedicated success manager",
+  { 
+    title: "AI-powered campaign optimization", 
+    href: "/why-choose/ai-powered",
+    icon: Brain 
+  },
+  { 
+    title: "Real-time performance dashboards", 
+    href: "/why-choose/data-driven",
+    icon: BarChart3 
+  },
+  { 
+    title: "Multi-channel attribution", 
+    href: "/why-choose/multi-channel",
+    icon: Target 
+  },
+  { 
+    title: "Dedicated success manager", 
+    href: "/why-choose/dedicated-support",
+    icon: Headphones 
+  },
+  { 
+    title: "Transparent reporting & insights", 
+    href: "/why-choose/transparent-reporting",
+    icon: Shield 
+  },
+  { 
+    title: "Proven track record of results", 
+    href: "/why-choose/proven-results",
+    icon: Award 
+  },
 ];
 
 const metrics = [
@@ -37,18 +62,26 @@ export const WhyChooseSection = () => {
 
             <ul className="space-y-4 mb-8">
               {features.map((feature) => (
-                <li key={feature} className="flex items-center gap-3">
-                  <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center">
-                    <CheckCircle className="w-4 h-4 text-primary" />
-                  </div>
-                  <span className="text-foreground">{feature}</span>
+                <li key={feature.title}>
+                  <Link 
+                    to={feature.href}
+                    className="flex items-center gap-3 group hover:bg-card p-2 -ml-2 rounded-lg transition-colors"
+                  >
+                    <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                      <feature.icon className="w-4 h-4 text-primary group-hover:text-primary-foreground" />
+                    </div>
+                    <span className="text-foreground group-hover:text-primary transition-colors">{feature.title}</span>
+                    <ArrowRight className="w-4 h-4 text-primary opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </Link>
                 </li>
               ))}
             </ul>
 
-            <Button variant="default" size="lg">
-              See How We Work
-              <ArrowRight className="w-4 h-4" />
+            <Button variant="default" size="lg" asChild>
+              <Link to="/company/approach">
+                See How We Work
+                <ArrowRight className="w-4 h-4" />
+              </Link>
             </Button>
           </div>
 
