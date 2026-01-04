@@ -1,318 +1,235 @@
 import {
-  BarChart3,
-  Target,
-  TrendingUp,
-  Search,
-  Users,
-  Megaphone,
-  PenTool,
-  FileText,
-  Share2,
-  Video,
-  Lightbulb,
-  LineChart,
-  MousePointer,
-  Smile,
-  Layout,
-  Star,
-  Workflow,
-  Mail,
-  Settings,
-  Briefcase,
-  Building,
-  ShoppingCart,
-  Store,
-  Tag,
-  Truck,
-  Palette,
-  Brush,
-  Layers,
-  Image,
-  Sparkles,
-  Bot,
-  Brain,
-  Cpu,
-  MessageSquare,
-  Zap,
-  Code,
-  Globe,
-  Server,
-  Shield,
-  Database,
-  AlertCircle,
-  CheckCircle,
-  XCircle,
-  Eye,
-  DollarSign,
-  Rocket,
-  Clock,
-  type LucideIcon,
+    Search,
+    BarChart,
+    Share2,
+    PenTool,
+    Mail,
+    MousePointer,
+    Rocket,
+    Bot,
+    Cpu,
+    PieChart,
+    Mic,
+    ShieldCheck,
+    Code,
+    Webhook,
+    Cloud,
+    ShoppingCart,
+    ShoppingBag,
+    HeartHandshake,
+    Briefcase,
+    Database,
+    Lock,
+    MonitorPlay,
+    Palette,
+    GraduationCap,
+    Video
 } from "lucide-react";
 
-export interface MenuItem {
-  title: string;
-  description: string;
-  href: string;
-  icon: LucideIcon;
-}
-
-export interface MenuCategory {
-  title: string;
-  items: MenuItem[];
-  cta: {
-    title: string;
-    description: string;
-    buttonText: string;
-  };
-}
-
-export const menuData: MenuCategory[] = [
-  {
-    title: "Services",
-    cta: {
-      title: "Need Help Choosing?",
-      description: "Our experts will recommend the right services for your business goals.",
-      buttonText: "Get Free Consultation",
+export const menuData = [
+    {
+        title: "Growth, Marketing & Performance",
+        href: "/services/growth-marketing-performance",
+        cta: {
+            title: "Scale Your Growth",
+            description: "Data-driven strategies to maximize your ROI.",
+            buttonText: "Get Growth Strategy",
+        },
+        items: [
+            {
+                title: "Search Engine Optimisation (SEO) Services",
+                href: "/services/growth-marketing-performance/seo-services",
+                description: "Boost organic traffic and dominate search rankings.",
+                icon: Search,
+            },
+            {
+                title: "Pay-Per-Click (PPC) & Performance Advertising",
+                href: "/services/growth-marketing-performance/ppc-performance-advertising",
+                description: "Targeted campaigns that drive immediate results.",
+                icon: MousePointer,
+            },
+            {
+                title: "Social Media Marketing Services",
+                href: "/services/growth-marketing-performance/social-media-marketing",
+                description: "Build community and engage your audience across platforms.",
+                icon: Share2,
+            },
+            {
+                title: "Content Marketing Services",
+                href: "/services/growth-marketing-performance/content-marketing",
+                description: "Compelling content that educates and converts.",
+                icon: PenTool,
+            },
+            {
+                title: "Email Marketing Services",
+                href: "/services/growth-marketing-performance/email-marketing",
+                description: "Nurture leads and retain customers with personalized email flows.",
+                icon: Mail,
+            },
+            {
+                title: "Conversion Rate Optimisation (CRO)",
+                href: "/services/growth-marketing-performance/conversion-rate-optimisation",
+                description: "Turn more visitors into paying customers.",
+                icon: BarChart,
+            },
+            {
+                title: "Growth Marketing & Experimentation",
+                href: "/services/growth-marketing-performance/growth-marketing-experimentation",
+                description: "Agile testing to unlock new growth channels.",
+                icon: Rocket,
+            },
+        ],
     },
-    items: [
-      {
-        title: "Digital Intelligence & RevOps",
-        description: "Data-driven insights and revenue operations",
-        href: "/services/digital-intelligence",
-        icon: BarChart3,
-      },
-      {
-        title: "Digital Advertising",
-        description: "PPC, social ads, and programmatic",
-        href: "/services/digital-advertising",
-        icon: Target,
-      },
-      {
-        title: "SEO & Content Marketing",
-        description: "Organic growth and authority building",
-        href: "/services/seo-content-marketing",
-        icon: Search,
-      },
-      {
-        title: "Conversion Optimization",
-        description: "CRO, UX testing, and landing pages",
-        href: "/services/conversion-optimization",
-        icon: MousePointer,
-      },
-      {
-        title: "Marketing Automation",
-        description: "CRM, ABM, and email marketing",
-        href: "/services/marketing-automation",
-        icon: Workflow,
-      },
-      {
-        title: "Ecommerce & Marketplaces",
-        description: "Amazon, Shopify, and marketplace growth",
-        href: "/services/ecommerce-marketplaces",
-        icon: ShoppingCart,
-      },
-      {
-        title: "Design & Creative",
-        description: "Website design and visual identity",
-        href: "/services/design-creative",
-        icon: Palette,
-      },
-      {
-        title: "AI Services",
-        description: "AI consulting and automation",
-        href: "/services/ai-services",
-        icon: Brain,
-      },
-      {
-        title: "Development",
-        description: "Web development and platforms",
-        href: "/services/development",
-        icon: Code,
-      },
-    ],
-  },
-  {
-    title: "Solutions",
-    cta: {
-      title: "Not Sure What You Need?",
-      description: "Tell us your challenge and we'll find the solution.",
-      buttonText: "Describe Your Challenge",
+    {
+        title: "AI, Automation & Intelligent Systems",
+        href: "/services/ai-automation-intelligent-systems",
+        cta: {
+            title: "Future-Proof Your Business",
+            description: "Leverage AI to automate and innovate.",
+            buttonText: "Explore AI Solutions",
+        },
+        items: [
+            {
+                title: "AI-Powered Marketing & Automation Services",
+                href: "/services/ai-automation-intelligent-systems/ai-marketing-automation",
+                description: "Automate repetitive tasks and personalize at scale.",
+                icon: Bot,
+            },
+            {
+                title: "AI Tools Development & Intelligent Systems",
+                href: "/services/ai-automation-intelligent-systems/ai-tools-development",
+                description: "Custom AI solutions tailored to your business needs.",
+                icon: Cpu,
+            },
+            {
+                title: "Analytics, AI & Marketing Technology",
+                href: "/services/ai-automation-intelligent-systems/analytics-ai-martech",
+                description: "Deep insights powered by advanced analytics.",
+                icon: PieChart,
+            },
+            {
+                title: "Voice, Conversational & AI Search Optimisation",
+                href: "/services/ai-automation-intelligent-systems/voice-ai-search",
+                description: "Optimize for the future of voice-activated search.",
+                icon: Mic,
+            },
+            {
+                title: "AI Governance, Ethics & Risk Management",
+                href: "/services/ai-automation-intelligent-systems/ai-governance-ethics",
+                description: "Implement AI responsibly and securely.",
+                icon: ShieldCheck,
+            },
+        ],
     },
-    items: [
-      {
-        title: "Website Doesn't Drive Leads",
-        description: "Turn visitors into qualified leads",
-        href: "/solutions/website-leads",
-        icon: AlertCircle,
-      },
-      {
-        title: "Traffic Is Declining",
-        description: "Recover and grow organic traffic",
-        href: "/solutions/traffic-declining",
-        icon: TrendingUp,
-      },
-      {
-        title: "Website Doesn't Convert",
-        description: "Improve conversion rates",
-        href: "/solutions/website-conversion",
-        icon: XCircle,
-      },
-      {
-        title: "Not Showing on Google",
-        description: "Get found in search results",
-        href: "/solutions/google-visibility",
-        icon: Eye,
-      },
-      {
-        title: "Agency Not Delivering",
-        description: "Get real results from marketing",
-        href: "/solutions/agency-switch",
-        icon: CheckCircle,
-      },
-      {
-        title: "Revenue Acceleration Platform",
-        description: "AI-powered growth technology",
-        href: "/platform",
-        icon: Rocket,
-      },
-    ],
-  },
-  {
-    title: "Industries",
-    cta: {
-      title: "Industry-Specific Expertise",
-      description: "We understand your market and audience.",
-      buttonText: "See Case Studies",
+    {
+        title: "Technology, Web & SaaS Solutions",
+        href: "/services/technology-web-saas-solutions",
+        cta: {
+            title: "Build Digital Excellence",
+            description: "Robust technology solutions for modern businesses.",
+            buttonText: "Start Building",
+        },
+        items: [
+            {
+                title: "Web Design & Development Services",
+                href: "/services/technology-web-saas-solutions/web-design-development",
+                description: "Stunning, responsive websites that perform.",
+                icon: Code,
+            },
+            {
+                title: "Custom Development & Integrations",
+                href: "/services/technology-web-saas-solutions/custom-development-integrations",
+                description: "Tailored software to solve unique business challenges.",
+                icon: Webhook,
+            },
+            {
+                title: "SaaS Products & Cloud-Based Software Solutions",
+                href: "/services/technology-web-saas-solutions/saas-cloud-solutions",
+                description: "Scalable cloud applications and SaaS products.",
+                icon: Cloud,
+            },
+        ],
     },
-    items: [
-      {
-        title: "Ecommerce & Retail",
-        description: "Drive online sales and growth",
-        href: "/industries/ecommerce",
-        icon: ShoppingCart,
-      },
-      {
-        title: "SaaS & Technology",
-        description: "Scale your software business",
-        href: "/industries/saas",
-        icon: Cpu,
-      },
-      {
-        title: "Healthcare",
-        description: "HIPAA-compliant marketing",
-        href: "/industries/healthcare",
-        icon: Shield,
-      },
-      {
-        title: "Education & EdTech",
-        description: "Enrollment and engagement",
-        href: "/industries/education",
-        icon: Lightbulb,
-      },
-      {
-        title: "Real Estate",
-        description: "Lead generation for properties",
-        href: "/industries/real-estate",
-        icon: Building,
-      },
-      {
-        title: "B2B & Manufacturing",
-        description: "Industrial marketing solutions",
-        href: "/industries/b2b-manufacturing",
-        icon: Briefcase,
-      },
-    ],
-  },
-  {
-    title: "Resources",
-    cta: {
-      title: "Free Growth Tools",
-      description: "Analyze your website and competitors.",
-      buttonText: "Try Free Tools",
+    {
+        title: "Commerce, Marketplaces & CX",
+        href: "/services/commerce-marketplaces-cx",
+        cta: {
+            title: "Drive Ecommerce Sales",
+            description: "Optimize your store and marketplace presence.",
+            buttonText: "Boost Sales Now",
+        },
+        items: [
+            {
+                title: "E-commerce Marketing Services",
+                href: "/services/commerce-marketplaces-cx/ecommerce-marketing",
+                description: "Strategies to increase online store sales.",
+                icon: ShoppingCart,
+            },
+            {
+                title: "Amazon Marketing Services",
+                href: "/services/commerce-marketplaces-cx/amazon-marketing",
+                description: "Dominate the world's largest marketplace.",
+                icon: ShoppingBag,
+            },
+            {
+                title: "Customer Experience (CX) & Journey Orchestration",
+                href: "/services/commerce-marketplaces-cx/customer-experience-journey",
+                description: "Map and improve every customer touchpoint.",
+                icon: HeartHandshake,
+            },
+        ],
     },
-    items: [
-      {
-        title: "Blog & Articles",
-        description: "Latest marketing insights",
-        href: "/resources/blog",
-        icon: FileText,
-      },
-      {
-        title: "Case Studies",
-        description: "Real client success stories",
-        href: "/resources/case-studies",
-        icon: LineChart,
-      },
-      {
-        title: "Marketing Guides",
-        description: "In-depth strategy guides",
-        href: "/resources/guides",
-        icon: Lightbulb,
-      },
-      {
-        title: "Free Tools",
-        description: "SEO checker, keyword tools",
-        href: "/resources/tools",
-        icon: Sparkles,
-      },
-      {
-        title: "Pricing Guides",
-        description: "Transparent cost breakdowns",
-        href: "/pricing",
-        icon: DollarSign,
-      },
-      {
-        title: "FAQs",
-        description: "Common questions answered",
-        href: "/faqs",
-        icon: MessageSquare,
-      },
-    ],
-  },
-  {
-    title: "Company",
-    cta: {
-      title: "Join Our Team",
-      description: "We're hiring talented marketers and developers.",
-      buttonText: "View Open Positions",
+    {
+        title: "Enterprise, Data & Enablement",
+        href: "/services/enterprise-data-enablement",
+        cta: {
+            title: "Enterprise Grade Solutions",
+            description: "Scalable data and marketing for large organizations.",
+            buttonText: "Contact Enterprise Team",
+        },
+        items: [
+            {
+                title: "B2B & Account-Based Marketing (ABM)",
+                href: "/services/enterprise-data-enablement/b2b-account-based-marketing",
+                description: "Target high-value accounts with precision.",
+                icon: Briefcase,
+            },
+            {
+                title: "First-Party Data, CDP & Identity Resolution",
+                href: "/services/enterprise-data-enablement/first-party-data-cdp",
+                description: "Unify your customer data for better insights.",
+                icon: Database,
+            },
+            {
+                title: "Data Privacy, Compliance & Trust Marketing",
+                href: "/services/enterprise-data-enablement/data-privacy-compliance",
+                description: "Navigate privacy regulations and build trust.",
+                icon: Lock,
+            },
+            {
+                title: "Programmatic & Advanced Advertising",
+                href: "/services/enterprise-data-enablement/programmatic-advertising",
+                description: "Automated ad buying for efficiency and scale.",
+                icon: MonitorPlay,
+            },
+            {
+                title: "Branding, Creative & Graphic Design",
+                href: "/services/enterprise-data-enablement/branding-creative-design",
+                description: "Visual identity that tells your brand story.",
+                icon: Palette,
+            },
+            {
+                title: "Professional Training & Internship Programs",
+                href: "/services/enterprise-data-enablement/training-internships",
+                description: "Upskill your team and find new talent.",
+                icon: GraduationCap,
+            },
+            {
+                title: "Video Marketing Services",
+                href: "/services/enterprise-data-enablement/video-marketing",
+                description: "Engage audiences with compelling video content.",
+                icon: Video,
+            },
+        ],
     },
-    items: [
-      {
-        title: "About Us",
-        description: "Our story and mission",
-        href: "/company/about",
-        icon: Users,
-      },
-      {
-        title: "Our Approach",
-        description: "How we deliver results",
-        href: "/company/approach",
-        icon: Zap,
-      },
-      {
-        title: "Careers",
-        description: "Join our growing team",
-        href: "/company/careers",
-        icon: Briefcase,
-      },
-      {
-        title: "Reviews & Awards",
-        description: "What clients say about us",
-        href: "/reviews",
-        icon: Star,
-      },
-      {
-        title: "Community Impact",
-        description: "Giving back to society",
-        href: "/company/community",
-        icon: Globe,
-      },
-      {
-        title: "Contact Us",
-        description: "Get in touch with our team",
-        href: "/contact",
-        icon: Mail,
-      },
-    ],
-  },
 ];
