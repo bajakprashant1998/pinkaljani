@@ -4,37 +4,22 @@ import { Button } from "@/components/ui/button";
 import { ChevronDown, Menu, X, Phone, ArrowRight } from "lucide-react";
 import { MegaMenu } from "./MegaMenu";
 import { menuData } from "@/data/menuData";
+import { contactInfo } from "@/data/contactInfo";
 
 export const Header = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const location = useLocation();
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   useEffect(() => {
     setIsMobileMenuOpen(false);
     setActiveMenu(null);
   }, [location]);
 
-  // Determine if we're on the homepage hero area (not scrolled)
-  const isOnDarkBg = !isScrolled && location.pathname === "/";
-
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled
-            ? "bg-card/95 backdrop-blur-lg shadow-md py-3"
-            : "bg-transparent py-5"
-        }`}
+        className="fixed top-0 left-0 right-0 z-50 bg-secondary py-4"
         onMouseLeave={() => setActiveMenu(null)}
       >
         <div className="container-wide">
@@ -45,10 +30,10 @@ export const Header = () => {
                 <span className="text-primary-foreground font-display font-bold text-xl">D</span>
               </div>
               <div className="hidden sm:block">
-                <span className={`font-display font-bold text-xl transition-colors ${isOnDarkBg ? "text-white" : "text-foreground"}`}>
+                <span className="font-display font-bold text-xl text-white">
                   Digital Bull
                 </span>
-                <span className={`block text-xs -mt-1 transition-colors ${isOnDarkBg ? "text-white/70" : "text-muted-foreground"}`}>
+                <span className="block text-xs -mt-1 text-white/70">
                   Technology Pvt. Ltd.
                 </span>
               </div>
@@ -66,9 +51,7 @@ export const Header = () => {
                     className={`flex items-center gap-1 px-4 py-2 text-sm font-medium transition-colors rounded-lg ${
                       activeMenu === item.title
                         ? "text-primary bg-white/20"
-                        : isOnDarkBg
-                        ? "text-white hover:text-primary hover:bg-white/10"
-                        : "text-foreground hover:text-primary hover:bg-muted/50"
+                        : "text-white hover:text-primary hover:bg-white/10"
                     }`}
                   >
                     {item.title}
@@ -81,13 +64,11 @@ export const Header = () => {
             {/* CTA Buttons */}
             <div className="hidden lg:flex items-center gap-3">
               <a 
-                href="tel:+911234567890" 
-                className={`flex items-center gap-2 text-sm font-medium transition-colors ${
-                  isOnDarkBg ? "text-white hover:text-primary" : "text-foreground hover:text-primary"
-                }`}
+                href={`tel:${contactInfo.phone.replace(/\s/g, "")}`}
+                className="flex items-center gap-2 text-sm font-medium text-white hover:text-primary transition-colors"
               >
                 <Phone className="w-4 h-4" />
-                <span>+91 123 456 7890</span>
+                <span>{contactInfo.phone}</span>
               </a>
               <Button variant="accent" size="default">
                 Get Free Proposal
@@ -97,7 +78,7 @@ export const Header = () => {
 
             {/* Mobile Menu Button */}
             <button
-              className={`lg:hidden p-2 rounded-lg transition-colors ${isOnDarkBg ? "text-white hover:bg-white/10" : "hover:bg-muted"}`}
+              className="lg:hidden p-2 rounded-lg text-white hover:bg-white/10 transition-colors"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
               {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
