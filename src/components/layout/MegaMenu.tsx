@@ -55,9 +55,11 @@ export const MegaMenu = ({ activeMenu, setActiveMenu }: MegaMenuProps) => {
             <p className="text-sm text-muted-foreground mb-4">
               {currentMenu.cta.description}
             </p>
-            <Button variant="accent" size="sm" className="w-full">
-              {currentMenu.cta.buttonText}
-              <ArrowRight className="w-4 h-4" />
+            <Button variant="accent" size="sm" className="w-full" asChild>
+              <Link to="/contact" onClick={() => setActiveMenu(null)}>
+                {currentMenu.cta.buttonText}
+                <ArrowRight className="w-4 h-4" />
+              </Link>
             </Button>
             <div className="mt-4 pt-4 border-t border-border/50">
               <ul className="text-xs text-muted-foreground space-y-1">

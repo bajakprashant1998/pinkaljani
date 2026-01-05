@@ -1,114 +1,35 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, type LucideIcon } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import {
-  BarChart3,
-  Target,
-  Search,
-  MousePointer,
-  Workflow,
-  ShoppingCart,
-  Palette,
+  Rocket,
   Brain,
   Code,
+  ShoppingCart,
+  Database,
   TrendingUp,
   Users,
   DollarSign,
   Award,
+  Search,
+  Target,
+  Megaphone,
+  PenTool,
+  Mail,
+  MousePointer,
+  Bot,
+  Cpu,
+  BarChart3,
+  MessageSquare,
+  Shield,
+  Globe,
+  Store,
+  Smile,
+  Lock,
+  Palette,
+  GraduationCap,
+  Video,
 } from "lucide-react";
-
-interface ServiceItem {
-  title: string;
-  description: string;
-  features: string[];
-  icon: LucideIcon;
-  href: string;
-  color: string;
-  stats: string;
-}
-
-const services: ServiceItem[] = [
-  {
-    title: "Digital Intelligence & RevOps",
-    description: "Transform data into decisions with AI-powered analytics and revenue operations.",
-    features: ["Call Tracking", "Attribution Modeling", "Revenue Forecasting", "Competitive Analysis"],
-    icon: BarChart3,
-    href: "/services/digital-intelligence",
-    color: "from-blue-500 to-cyan-500",
-    stats: "3.2x ROI",
-  },
-  {
-    title: "Digital Advertising",
-    description: "Maximize ROAS with data-driven PPC, social, and programmatic campaigns.",
-    features: ["Google Ads", "Social Media Ads", "Programmatic", "Retargeting"],
-    icon: Target,
-    href: "/services/digital-advertising",
-    color: "from-orange-500 to-red-500",
-    stats: "250% ROAS",
-  },
-  {
-    title: "SEO & Content Marketing",
-    description: "Dominate search results with our proprietary OmniSEO® methodology.",
-    features: ["Technical SEO", "Content Strategy", "Link Building", "Local SEO"],
-    icon: Search,
-    href: "/services/seo-content-marketing",
-    color: "from-green-500 to-emerald-500",
-    stats: "340% Traffic",
-  },
-  {
-    title: "Conversion Optimization",
-    description: "Turn more visitors into customers with data-driven CRO and UX testing.",
-    features: ["A/B Testing", "Heatmaps", "User Research", "Landing Pages"],
-    icon: MousePointer,
-    href: "/services/conversion-optimization",
-    color: "from-purple-500 to-pink-500",
-    stats: "+127% CVR",
-  },
-  {
-    title: "Marketing Automation",
-    description: "Scale personalized marketing with intelligent automation and CRM integration.",
-    features: ["Email Automation", "Lead Scoring", "ABM", "CRM Integration"],
-    icon: Workflow,
-    href: "/services/marketing-automation",
-    color: "from-indigo-500 to-blue-500",
-    stats: "67% Faster",
-  },
-  {
-    title: "Ecommerce & Marketplaces",
-    description: "Dominate Amazon, Shopify, and online marketplaces with proven strategies.",
-    features: ["Amazon SEO", "Marketplace Ads", "Shopify Optimization", "Influencer Marketing"],
-    icon: ShoppingCart,
-    href: "/services/ecommerce-marketplaces",
-    color: "from-teal-500 to-green-500",
-    stats: "₹2Cr+ Sales",
-  },
-  {
-    title: "Design & Creative",
-    description: "Beautiful, conversion-focused design that elevates your brand.",
-    features: ["Website Design", "UI/UX", "Brand Identity", "Creative Assets"],
-    icon: Palette,
-    href: "/services/design-creative",
-    color: "from-pink-500 to-rose-500",
-    stats: "50+ Sites",
-  },
-  {
-    title: "AI Services",
-    description: "Harness AI to automate, personalize, and scale your marketing efforts.",
-    features: ["AI Consulting", "ChatGPT Optimization", "AI Agents", "GEO/AEO"],
-    icon: Brain,
-    href: "/services/ai-services",
-    color: "from-violet-500 to-purple-500",
-    stats: "AI-First",
-  },
-  {
-    title: "Development",
-    description: "Fast, secure, scalable web development and platform solutions.",
-    features: ["WordPress", "Shopify", "Custom Development", "Maintenance"],
-    icon: Code,
-    href: "/services/development",
-    color: "from-slate-500 to-gray-600",
-    stats: "99.9% Uptime",
-  },
-];
+import { serviceCategories } from "@/data/menuData";
 
 const highlights = [
   { icon: TrendingUp, value: "500+", label: "Projects Delivered" },
@@ -117,6 +38,14 @@ const highlights = [
   { icon: Award, value: "15+", label: "Industry Awards" },
 ];
 
+const categoryStats: Record<string, string> = {
+  "growth-marketing-performance": "340% Traffic Growth",
+  "ai-automation-intelligent-systems": "AI-First Approach",
+  "technology-web-saas": "99.9% Uptime",
+  "commerce-marketplaces-cx": "₹2Cr+ Sales",
+  "enterprise-data-enablement": "3.2x ROI",
+};
+
 export const ServicesSection = () => {
   return (
     <section className="section-padding bg-background">
@@ -124,7 +53,7 @@ export const ServicesSection = () => {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-8">
           <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-4">
-            <BarChart3 className="w-4 h-4" />
+            <Rocket className="w-4 h-4" />
             Our Services
           </span>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
@@ -148,42 +77,91 @@ export const ServicesSection = () => {
           ))}
         </div>
 
-        {/* Services Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((service, index) => (
-            <Link
-              key={service.title}
-              to={service.href}
-              className="group bg-card rounded-2xl p-6 shadow-sm border border-border hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
-              style={{ animationDelay: `${index * 50}ms` }}
-            >
-              <div className="flex items-start justify-between mb-4">
-                <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${service.color} flex items-center justify-center group-hover:scale-110 transition-transform`}>
-                  <service.icon className="w-7 h-7 text-white" />
-                </div>
-                <span className="text-xs font-bold text-primary bg-primary/10 px-2 py-1 rounded">
-                  {service.stats}
-                </span>
-              </div>
-              <h3 className="font-display font-bold text-xl text-foreground mb-2 group-hover:text-primary transition-colors">
-                {service.title}
-              </h3>
-              <p className="text-muted-foreground text-sm mb-4">
-                {service.description}
-              </p>
-              <div className="flex flex-wrap gap-2 mb-4">
-                {service.features.map((feature) => (
-                  <span key={feature} className="text-xs bg-muted text-muted-foreground px-2 py-1 rounded">
-                    {feature}
+        {/* Main Service Categories */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+          {serviceCategories.map((category, index) => {
+            const Icon = category.icon;
+            return (
+              <Link
+                key={category.id}
+                to={`/services/${category.id}`}
+                className="group bg-card rounded-2xl p-6 shadow-sm border border-border hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+              >
+                <div className="flex items-start justify-between mb-4">
+                  <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${category.color} flex items-center justify-center group-hover:scale-110 transition-transform`}>
+                    <Icon className="w-7 h-7 text-white" />
+                  </div>
+                  <span className="text-xs font-bold text-primary bg-primary/10 px-2 py-1 rounded">
+                    {categoryStats[category.id]}
                   </span>
-                ))}
+                </div>
+                <h3 className="font-display font-bold text-xl text-foreground mb-2 group-hover:text-primary transition-colors">
+                  {category.title}
+                </h3>
+                <p className="text-muted-foreground text-sm mb-4">
+                  {category.description}
+                </p>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {category.subcategories.slice(0, 3).map((sub) => (
+                    <span key={sub.title} className="text-xs bg-muted text-muted-foreground px-2 py-1 rounded">
+                      {sub.title.split(' ').slice(0, 2).join(' ')}
+                    </span>
+                  ))}
+                  {category.subcategories.length > 3 && (
+                    <span className="text-xs bg-muted text-muted-foreground px-2 py-1 rounded">
+                      +{category.subcategories.length - 3} more
+                    </span>
+                  )}
+                </div>
+                <div className="flex items-center text-primary font-medium text-sm">
+                  View All Services
+                  <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                </div>
+              </Link>
+            );
+          })}
+        </div>
+
+        {/* All Services Quick Links */}
+        <div className="bg-muted rounded-2xl p-8">
+          <h3 className="font-display font-bold text-xl text-foreground mb-6 text-center">
+            All Services at a Glance
+          </h3>
+          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
+            {serviceCategories.map((category) => (
+              <div key={category.id}>
+                <Link 
+                  to={`/services/${category.id}`}
+                  className="font-semibold text-foreground hover:text-primary transition-colors text-sm flex items-center gap-2 mb-3"
+                >
+                  <category.icon className="w-4 h-4" />
+                  {category.title.split(',')[0]}
+                </Link>
+                <ul className="space-y-2">
+                  {category.subcategories.slice(0, 4).map((sub) => (
+                    <li key={sub.title}>
+                      <Link 
+                        to={sub.href}
+                        className="text-xs text-muted-foreground hover:text-primary transition-colors"
+                      >
+                        {sub.title}
+                      </Link>
+                    </li>
+                  ))}
+                  {category.subcategories.length > 4 && (
+                    <li>
+                      <Link 
+                        to={`/services/${category.id}`}
+                        className="text-xs text-primary hover:underline"
+                      >
+                        View all →
+                      </Link>
+                    </li>
+                  )}
+                </ul>
               </div>
-              <div className="flex items-center text-primary font-medium text-sm">
-                Explore Services
-                <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
-              </div>
-            </Link>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>
