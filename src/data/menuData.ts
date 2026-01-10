@@ -35,6 +35,9 @@ import {
   Link2,
   Building2,
   Layout,
+  Layers,
+  TrendingUp,
+  RefreshCw,
   type LucideIcon,
 } from "lucide-react";
 
@@ -314,6 +317,24 @@ export const serviceCategories: ServiceCategory[] = [
       { title: "Email Deliverability", description: "Ensure inbox placement", href: "/services/growth-marketing-performance/deliverability", icon: Mail },
       { title: "Email Testing & Optimization", description: "Data-driven email optimization", href: "/services/growth-marketing-performance/email-testing", icon: Zap },
       { title: "Email Analytics & Reporting", description: "Comprehensive email analytics", href: "/services/growth-marketing-performance/email-analytics", icon: BarChart3 },
+      // CRO (Conversion Rate Optimization)
+      { title: "CRO Audits & Analysis", description: "Comprehensive conversion audits", href: "/services/growth-marketing-performance/cro-audits", icon: Search },
+      { title: "A/B Testing & Experimentation", description: "Scientific testing programs", href: "/services/growth-marketing-performance/ab-testing", icon: Layers },
+      { title: "Landing Page Optimization", description: "High-converting landing pages", href: "/services/growth-marketing-performance/landing-page-optimization", icon: Layout },
+      { title: "Ecommerce CRO", description: "Optimize your online store", href: "/services/growth-marketing-performance/ecommerce-cro", icon: ShoppingCart },
+      { title: "User Research & Insights", description: "Understand your users", href: "/services/growth-marketing-performance/user-research", icon: Users },
+      { title: "Personalization & Segmentation", description: "Personalized experiences", href: "/services/growth-marketing-performance/personalization", icon: Target },
+      { title: "Psychology & Persuasion Design", description: "Behavioral psychology for CRO", href: "/services/growth-marketing-performance/psychology-persuasion", icon: Brain },
+      { title: "CRO Analytics & Reporting", description: "Measure conversion performance", href: "/services/growth-marketing-performance/cro-analytics", icon: BarChart3 },
+      // Growth Marketing
+      { title: "Growth Strategy & Planning", description: "Strategic growth frameworks", href: "/services/growth-marketing-performance/growth-strategy", icon: Rocket },
+      { title: "Acquisition Marketing", description: "Scalable customer acquisition", href: "/services/growth-marketing-performance/acquisition-marketing", icon: TrendingUp },
+      { title: "Activation & Onboarding", description: "Convert signups to active users", href: "/services/growth-marketing-performance/activation-onboarding", icon: Zap },
+      { title: "Retention & Engagement", description: "Keep users coming back", href: "/services/growth-marketing-performance/retention-engagement", icon: RefreshCw },
+      { title: "Revenue & Monetization", description: "Optimize monetization", href: "/services/growth-marketing-performance/revenue-monetization", icon: DollarSign },
+      { title: "Product-Led Growth", description: "Let your product drive growth", href: "/services/growth-marketing-performance/product-led-growth", icon: Rocket },
+      { title: "Growth Experimentation", description: "Systematic growth testing", href: "/services/growth-marketing-performance/growth-experimentation", icon: Layers },
+      { title: "Growth Analytics & Attribution", description: "Measure growth performance", href: "/services/growth-marketing-performance/growth-analytics", icon: LineChart },
     ],
   },
   {
