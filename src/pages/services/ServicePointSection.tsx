@@ -10,6 +10,13 @@ import {
   ComparisonChart,
   FlowDiagram,
   TimelineProgress,
+  AreaChartCard,
+  LineChartCard,
+  ScatterPlot,
+  BarChartCard,
+  RadarChartCard,
+  ComposedChartCard,
+  PieChartCard,
 } from "@/components/infographics";
 
 interface ServicePointSectionProps {
@@ -22,14 +29,20 @@ interface ServicePointSectionProps {
 const getInfographicData = (point: ServicePoint, index: number) => {
   const chartTypes = [
     "progress-bars",
-    "donut",
+    "area-chart",
     "comparison",
-    "metrics-grid",
+    "line-chart",
     "mini-bar",
-    "circular",
+    "radar-chart",
     "timeline",
+    "scatter-plot",
+    "composed-chart",
+    "pie-chart",
+    "donut",
+    "metrics-grid",
+    "circular",
     "flow",
-    "metrics-featured",
+    "bar-chart",
     "multi-progress",
   ];
   
@@ -76,13 +89,106 @@ const getInfographicData = (point: ServicePoint, index: number) => {
     { title: "Optimize", duration: "Ongoing", icon: Award, completed: false },
   ];
 
-  return { type, progressData, comparisonData, barChartData, donutSegments, flowSteps, timelineSteps };
+  // Recharts data
+  const areaChartData = [
+    { name: "Jan", value: 40 + (index * 5) % 20, value2: 30 + (index * 3) % 15 },
+    { name: "Feb", value: 55 + (index * 3) % 15, value2: 45 + (index * 4) % 18 },
+    { name: "Mar", value: 70 + (index * 4) % 20, value2: 58 + (index * 2) % 12 },
+    { name: "Apr", value: 65 + (index * 2) % 18, value2: 62 + (index * 5) % 15 },
+    { name: "May", value: 85 + (index * 6) % 15, value2: 75 + (index * 3) % 20 },
+    { name: "Jun", value: 95 + (index * 2) % 5, value2: 88 + (index * 4) % 12 },
+  ];
+
+  const lineChartData = [
+    { name: "Week 1", traffic: 1200 + index * 100, conversions: 45 + index * 5 },
+    { name: "Week 2", traffic: 1800 + index * 150, conversions: 62 + index * 8 },
+    { name: "Week 3", traffic: 2400 + index * 200, conversions: 78 + index * 10 },
+    { name: "Week 4", traffic: 3200 + index * 250, conversions: 95 + index * 12 },
+    { name: "Week 5", traffic: 4100 + index * 300, conversions: 115 + index * 15 },
+    { name: "Week 6", traffic: 4800 + index * 350, conversions: 138 + index * 18 },
+  ];
+
+  const scatterData = [
+    { x: 20 + index * 2, y: 30 + index * 3, z: 200 },
+    { x: 40 + index * 3, y: 50 + index * 4, z: 300 },
+    { x: 60 + index * 2, y: 45 + index * 2, z: 250 },
+    { x: 80 + index * 4, y: 70 + index * 3, z: 350 },
+    { x: 55 + index * 3, y: 65 + index * 5, z: 280 },
+    { x: 75 + index * 2, y: 85 + index * 2, z: 400 },
+  ];
+
+  const radarData = [
+    { subject: "SEO", value: 85 + (index * 3) % 15, value2: 95 },
+    { subject: "PPC", value: 78 + (index * 4) % 20, value2: 90 },
+    { subject: "Content", value: 92 + (index * 2) % 8, value2: 95 },
+    { subject: "Social", value: 70 + (index * 5) % 25, value2: 88 },
+    { subject: "Email", value: 88 + (index * 3) % 12, value2: 92 },
+    { subject: "Analytics", value: 82 + (index * 4) % 18, value2: 90 },
+  ];
+
+  const composedData = [
+    { name: "Jan", bar: 400 + index * 50, line: 240, area: 200 },
+    { name: "Feb", bar: 600 + index * 60, line: 320, area: 280 },
+    { name: "Mar", bar: 800 + index * 70, line: 450, area: 380 },
+    { name: "Apr", bar: 700 + index * 55, line: 380, area: 350 },
+    { name: "May", bar: 900 + index * 80, line: 520, area: 450 },
+    { name: "Jun", bar: 1100 + index * 90, line: 680, area: 580 },
+  ];
+
+  const pieData = [
+    { name: "Organic Search", value: 35 + (index * 2) % 10 },
+    { name: "Paid Ads", value: 25 + (index * 3) % 8 },
+    { name: "Social Media", value: 20 + (index * 2) % 6 },
+    { name: "Direct", value: 15 + (index) % 5 },
+    { name: "Referral", value: 5 + (index * 2) % 4 },
+  ];
+
+  const rechartsBarData = [
+    { name: "Jan", value: 65 + (index * 5) % 20 },
+    { name: "Feb", value: 72 + (index * 3) % 18 },
+    { name: "Mar", value: 85 + (index * 4) % 15 },
+    { name: "Apr", value: 78 + (index * 2) % 12 },
+    { name: "May", value: 92 + (index * 6) % 8 },
+    { name: "Jun", value: 98 + (index) % 2 },
+  ];
+
+  return { 
+    type, 
+    progressData, 
+    comparisonData, 
+    barChartData, 
+    donutSegments, 
+    flowSteps, 
+    timelineSteps,
+    areaChartData,
+    lineChartData,
+    scatterData,
+    radarData,
+    composedData,
+    pieData,
+    rechartsBarData,
+  };
 };
 
 const ServicePointSection = ({ point, index, color }: ServicePointSectionProps) => {
   const Icon = point.icon;
   const isEven = index % 2 === 0;
-  const { type, progressData, comparisonData, barChartData, donutSegments, flowSteps, timelineSteps } = getInfographicData(point, index);
+  const { 
+    type, 
+    progressData, 
+    comparisonData, 
+    barChartData, 
+    donutSegments, 
+    flowSteps, 
+    timelineSteps,
+    areaChartData,
+    lineChartData,
+    scatterData,
+    radarData,
+    composedData,
+    pieData,
+    rechartsBarData,
+  } = getInfographicData(point, index);
 
   const renderInfographic = () => {
     switch (type) {
@@ -243,6 +349,123 @@ const ServicePointSection = ({ point, index, color }: ServicePointSectionProps) 
                   delay={i * 0.15}
                 />
               ))}
+            </div>
+          </div>
+        );
+
+      // New Recharts-based visualizations
+      case "area-chart":
+        return (
+          <div>
+            <AreaChartCard
+              data={areaChartData}
+              title="Growth Trend Analysis"
+              dual={true}
+              height={220}
+            />
+            <div className="grid grid-cols-2 gap-4 mt-4">
+              <div className="bg-muted rounded-xl p-3 text-center">
+                <div className="text-lg font-bold text-foreground">+127%</div>
+                <div className="text-xs text-muted-foreground">6-Month Growth</div>
+              </div>
+              <div className="bg-muted rounded-xl p-3 text-center">
+                <div className="text-lg font-bold text-foreground">$1.8M</div>
+                <div className="text-xs text-muted-foreground">Revenue Added</div>
+              </div>
+            </div>
+          </div>
+        );
+
+      case "line-chart":
+        return (
+          <div>
+            <LineChartCard
+              data={lineChartData}
+              title="Traffic & Conversions"
+              lines={[
+                { dataKey: "traffic", color: "primary", name: "Traffic" },
+                { dataKey: "conversions", color: "accent", name: "Conversions" },
+              ]}
+              height={220}
+            />
+          </div>
+        );
+
+      case "scatter-plot":
+        return (
+          <div>
+            <ScatterPlot
+              data={scatterData}
+              title="Campaign Performance Distribution"
+              xLabel="Spend ($)"
+              yLabel="Conversions"
+              bubbles={true}
+              height={220}
+            />
+          </div>
+        );
+
+      case "radar-chart":
+        return (
+          <div>
+            <RadarChartCard
+              data={radarData}
+              title="Service Coverage Analysis"
+              dual={true}
+              showLegend={true}
+              height={280}
+            />
+          </div>
+        );
+
+      case "composed-chart":
+        return (
+          <div>
+            <ComposedChartCard
+              data={composedData}
+              title="Multi-Channel Performance"
+              showBar={true}
+              showLine={true}
+              showArea={true}
+              height={240}
+            />
+          </div>
+        );
+
+      case "pie-chart":
+        return (
+          <div>
+            <PieChartCard
+              data={pieData}
+              title="Traffic Source Distribution"
+              innerRadius={40}
+              height={280}
+            />
+          </div>
+        );
+
+      case "bar-chart":
+        return (
+          <div>
+            <BarChartCard
+              data={rechartsBarData}
+              title="Monthly Performance"
+              showLabels={true}
+              height={220}
+            />
+            <div className="grid grid-cols-3 gap-2 mt-4">
+              <div className="bg-muted rounded-lg p-2 text-center">
+                <div className="text-sm font-bold text-foreground">98%</div>
+                <div className="text-[10px] text-muted-foreground">Peak</div>
+              </div>
+              <div className="bg-muted rounded-lg p-2 text-center">
+                <div className="text-sm font-bold text-foreground">82%</div>
+                <div className="text-[10px] text-muted-foreground">Avg</div>
+              </div>
+              <div className="bg-muted rounded-lg p-2 text-center">
+                <div className="text-sm font-bold text-foreground">+23%</div>
+                <div className="text-[10px] text-muted-foreground">MoM</div>
+              </div>
             </div>
           </div>
         );

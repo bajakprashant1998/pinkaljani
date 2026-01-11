@@ -8,3 +8,12 @@ export { default as ComparisonChart } from "./ComparisonChart";
 export { default as FlowDiagram } from "./FlowDiagram";
 export { default as RadialProgress } from "./RadialProgress";
 export { default as TimelineProgress } from "./TimelineProgress";
+
+// Recharts-based components
+export { default as AreaChartCard } from "./AreaChartCard";
+export { default as LineChartCard } from "./LineChartCard";
+export { default as ScatterPlot } from "./ScatterPlot";
+export { default as BarChartCard } from "./BarChartCard";
+export { default as RadarChartCard } from "./RadarChartCard";
+export { default as ComposedChartCard } from "./ComposedChartCard";
+export { default as PieChartCard } from "./PieChartCard";
