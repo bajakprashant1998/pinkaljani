@@ -17,6 +17,8 @@ import {
   RadarChartCard,
   ComposedChartCard,
   PieChartCard,
+  FunnelChart,
+  GaugeIndicator,
 } from "@/components/infographics";
 
 interface ServicePointSectionProps {
@@ -44,6 +46,8 @@ const getInfographicData = (point: ServicePoint, index: number) => {
     "flow",
     "bar-chart",
     "multi-progress",
+    "funnel-chart",
+    "gauge-indicator",
   ];
   
   const type = chartTypes[index % chartTypes.length];
@@ -152,6 +156,15 @@ const getInfographicData = (point: ServicePoint, index: number) => {
     { name: "Jun", value: 98 + (index) % 2 },
   ];
 
+  const funnelStages = [
+    { label: "Visitors", value: 10000 + index * 500, color: "hsl(var(--primary))" },
+    { label: "Leads", value: 2500 + index * 150, color: "hsl(var(--accent))" },
+    { label: "Opportunities", value: 800 + index * 50, color: "hsl(199, 89%, 48%)" },
+    { label: "Customers", value: 200 + index * 20, color: "hsl(160, 84%, 39%)" },
+  ];
+
+  const gaugeValue = 72 + (index * 7) % 28;
+
   return { 
     type, 
     progressData, 
@@ -167,6 +180,8 @@ const getInfographicData = (point: ServicePoint, index: number) => {
     composedData,
     pieData,
     rechartsBarData,
+    funnelStages,
+    gaugeValue,
   };
 };
 
@@ -188,6 +203,8 @@ const ServicePointSection = ({ point, index, color }: ServicePointSectionProps) 
     composedData,
     pieData,
     rechartsBarData,
+    funnelStages,
+    gaugeValue,
   } = getInfographicData(point, index);
 
   const renderInfographic = () => {
@@ -465,6 +482,52 @@ const ServicePointSection = ({ point, index, color }: ServicePointSectionProps) 
               <div className="bg-muted rounded-lg p-2 text-center">
                 <div className="text-sm font-bold text-foreground">+23%</div>
                 <div className="text-[10px] text-muted-foreground">MoM</div>
+              </div>
+            </div>
+          </div>
+        );
+      
+      case "funnel-chart":
+        return (
+          <div>
+            <FunnelChart
+              title="Conversion Funnel"
+              stages={funnelStages}
+            />
+            <div className="grid grid-cols-2 gap-3 mt-4">
+              <div className="bg-muted rounded-lg p-3 text-center">
+                <div className="text-lg font-bold text-foreground">2.0%</div>
+                <div className="text-[10px] text-muted-foreground">Overall CVR</div>
+              </div>
+              <div className="bg-muted rounded-lg p-3 text-center">
+                <div className="text-lg font-bold text-foreground">+45%</div>
+                <div className="text-[10px] text-muted-foreground">vs Last Quarter</div>
+              </div>
+            </div>
+          </div>
+        );
+
+      case "gauge-indicator":
+        return (
+          <div className="space-y-4">
+            <GaugeIndicator
+              title="Conversion Score"
+              value={gaugeValue}
+              maxValue={100}
+              unit="%"
+            />
+            <div className="grid grid-cols-3 gap-2">
+              <div className="bg-muted rounded-lg p-2 text-center">
+                <div className="text-sm font-bold text-foreground">4.2s</div>
+                <div className="text-[10px] text-muted-foreground">Load Time</div>
+              </div>
+              <div className="bg-muted rounded-lg p-2 text-center">
+                <div className="text-sm font-bold text-foreground">89</div>
+                <div className="text-[10px] text-muted-foreground">PageSpeed</div>
+              </div>
+              <div className="bg-muted rounded-lg p-2 text-center">
+                <div className="text-sm font-bold text-foreground">A+</div>
+                <div className="text-[10px] text-muted-foreground">Grade</div>
               </div>
             </div>
           </div>
