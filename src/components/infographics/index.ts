@@ -17,3 +17,7 @@ export { default as BarChartCard } from "./BarChartCard";
 export { default as RadarChartCard } from "./RadarChartCard";
 export { default as ComposedChartCard } from "./ComposedChartCard";
 export { default as PieChartCard } from "./PieChartCard";
+
+// Conversion-focused components
+export { default as FunnelChart } from "./FunnelChart";
+export { default as GaugeIndicator } from "./GaugeIndicator";
