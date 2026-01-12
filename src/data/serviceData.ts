@@ -41,6 +41,7 @@ import {
   Sparkles,
   DollarSign,
   Wrench,
+  Cpu,
   type LucideIcon,
 } from "lucide-react";
 
@@ -2195,8 +2196,176 @@ export const getSubcategoryData = (categoryId: string, subcategorySlug: string):
   const growthMatch = growthMarketingServicesData.find(s => s.id === subcategorySlug);
   if (growthMatch) return growthMatch;
 
+  // Check AI Automation services
+  const aiMatch = aiAutomationServicesData.find(s => s.id === subcategorySlug);
+  if (aiMatch) return aiMatch;
+
   return undefined;
 };
+
+// AI, Automation & Intelligent Systems Services Data
+export const aiAutomationServicesData: SubcategoryData[] = [
+  {
+    id: "ai-marketing-automation",
+    title: "AI-Powered Marketing & Automation Services",
+    shortTitle: "AI Marketing Automation",
+    description: "Automate and optimize your marketing with intelligent AI systems",
+    longDescription: "Our AI-powered marketing automation services leverage cutting-edge machine learning to automate campaigns, personalize customer journeys, and optimize performance at scale. We help you achieve unprecedented efficiency and results.",
+    icon: Bot,
+    color: "from-violet-500 to-purple-500",
+    servicePoints: [
+      { id: "ai-campaign-automation", title: "AI Campaign Automation & Orchestration", description: "Deploy intelligent campaign workflows that adapt in real-time based on user behavior and performance data", icon: Bot },
+      { id: "predictive-lead-scoring", title: "Predictive Lead Scoring & Qualification", description: "Use machine learning models to score and prioritize leads based on conversion probability", icon: Target },
+      { id: "dynamic-personalization", title: "Dynamic Content Personalization", description: "Deliver personalized content experiences across channels using AI-driven recommendation engines", icon: Sparkles },
+      { id: "ai-email-automation", title: "AI Email Marketing Automation", description: "Optimize email send times, subject lines, and content with AI for maximum engagement", icon: Mail },
+      { id: "chatbot-conversational", title: "Chatbot & Conversational Marketing", description: "Deploy intelligent chatbots that qualify leads and provide 24/7 customer engagement", icon: MessageSquare },
+      { id: "marketing-attribution-ai", title: "AI-Powered Marketing Attribution", description: "Use machine learning to accurately attribute conversions across complex customer journeys", icon: LineChart },
+      { id: "customer-journey-ai", title: "Customer Journey Intelligence", description: "Map and optimize customer journeys with AI insights and predictive analytics", icon: Users },
+      { id: "automated-reporting", title: "Automated Reporting & Insights", description: "Generate real-time reports with AI-powered insights and actionable recommendations", icon: BarChart3 },
+      { id: "cross-channel-optimization", title: "Cross-Channel Campaign Optimization", description: "Optimize budget allocation and messaging across channels using AI algorithms", icon: Layers },
+      { id: "ai-marketing-strategy", title: "AI Marketing Strategy & Roadmapping", description: "Develop comprehensive AI marketing strategies aligned with business objectives", icon: Lightbulb },
+    ],
+    benefits: [
+      "80% reduction in manual tasks",
+      "Personalized experiences at scale",
+      "Real-time campaign optimization",
+      "Higher conversion rates",
+    ],
+    stats: [
+      { value: "340%", label: "ROI Improvement" },
+      { value: "67%", label: "Cost Reduction" },
+      { value: "5x", label: "Lead Quality" },
+    ],
+  },
+  {
+    id: "ai-tools-development",
+    title: "AI Tools Development & Intelligent Systems",
+    shortTitle: "AI Tools Development",
+    description: "Build custom AI solutions and intelligent systems for your business",
+    longDescription: "We develop custom AI tools and intelligent systems tailored to your unique business needs. From machine learning models to natural language processing applications, we build AI that drives competitive advantage.",
+    icon: Cpu,
+    color: "from-indigo-500 to-violet-500",
+    servicePoints: [
+      { id: "custom-ml-models", title: "Custom Machine Learning Model Development", description: "Build bespoke ML models trained on your data for prediction, classification, and optimization", icon: Brain },
+      { id: "nlp-applications", title: "Natural Language Processing Applications", description: "Develop NLP solutions for text analysis, sentiment detection, and content generation", icon: MessageSquare },
+      { id: "computer-vision", title: "Computer Vision & Image Analysis", description: "Implement visual AI for image recognition, object detection, and visual search", icon: Eye },
+      { id: "recommendation-engines", title: "Recommendation Engine Development", description: "Build personalized recommendation systems that drive engagement and conversions", icon: Sparkles },
+      { id: "ai-api-integration", title: "AI API Integration & Orchestration", description: "Integrate and orchestrate multiple AI services for comprehensive intelligent systems", icon: Code },
+      { id: "predictive-analytics", title: "Predictive Analytics Platforms", description: "Develop platforms that forecast trends, behavior, and business outcomes", icon: LineChart },
+      { id: "ai-data-pipelines", title: "AI Data Pipeline Engineering", description: "Build robust data pipelines that feed and optimize AI models continuously", icon: Database },
+      { id: "edge-ai-solutions", title: "Edge AI & Real-Time Processing", description: "Deploy AI at the edge for real-time processing and low-latency applications", icon: Zap },
+      { id: "ai-testing-validation", title: "AI Model Testing & Validation", description: "Rigorous testing frameworks to ensure AI accuracy, fairness, and reliability", icon: Shield },
+      { id: "ai-ops-deployment", title: "MLOps & AI Deployment Services", description: "End-to-end MLOps for model deployment, monitoring, and continuous improvement", icon: Settings },
+    ],
+    benefits: [
+      "Tailored AI solutions",
+      "Competitive advantage through AI",
+      "Scalable intelligent systems",
+      "Continuous model improvement",
+    ],
+    stats: [
+      { value: "95%", label: "Model Accuracy" },
+      { value: "10x", label: "Faster Processing" },
+      { value: "200+", label: "AI Projects Delivered" },
+    ],
+  },
+  {
+    id: "analytics-martech",
+    title: "Analytics, AI & Marketing Technology",
+    shortTitle: "Analytics & MarTech",
+    description: "Build your marketing technology stack with AI-powered analytics",
+    longDescription: "We help you build and optimize your marketing technology ecosystem with AI-powered analytics at its core. From data collection to actionable insights, we create integrated systems that drive data-driven decisions.",
+    icon: BarChart3,
+    color: "from-cyan-500 to-blue-500",
+    servicePoints: [
+      { id: "martech-stack-audit", title: "MarTech Stack Audit & Strategy", description: "Comprehensive assessment of your marketing technology with optimization recommendations", icon: Search },
+      { id: "cdp-implementation", title: "Customer Data Platform Implementation", description: "Deploy and configure CDPs to unify customer data across all touchpoints", icon: Database },
+      { id: "analytics-infrastructure", title: "Analytics Infrastructure Setup", description: "Build robust analytics infrastructure with proper tracking, tagging, and data governance", icon: Settings },
+      { id: "ai-analytics-platforms", title: "AI-Powered Analytics Platforms", description: "Implement analytics platforms with built-in AI for automated insights and predictions", icon: Brain },
+      { id: "data-visualization", title: "Data Visualization & Dashboards", description: "Create intuitive dashboards that turn complex data into actionable visual insights", icon: PieChart },
+      { id: "marketing-automation-integration", title: "Marketing Automation Integration", description: "Integrate marketing automation tools with your data ecosystem for seamless workflows", icon: Zap },
+      { id: "attribution-modeling", title: "Multi-Touch Attribution Modeling", description: "Implement sophisticated attribution models to understand true marketing impact", icon: LineChart },
+      { id: "privacy-compliance", title: "Privacy-First Analytics Setup", description: "Configure analytics with privacy compliance (GDPR, CCPA) and consent management", icon: Shield },
+      { id: "real-time-analytics", title: "Real-Time Analytics & Alerting", description: "Enable real-time data processing with automated alerts for key metrics", icon: Clock },
+      { id: "data-activation", title: "Data Activation & Operationalization", description: "Transform data insights into automated marketing actions across channels", icon: Rocket },
+    ],
+    benefits: [
+      "Unified customer data view",
+      "Automated insights generation",
+      "Privacy-compliant analytics",
+      "Real-time decision making",
+    ],
+    stats: [
+      { value: "360°", label: "Customer View" },
+      { value: "85%", label: "Faster Insights" },
+      { value: "40%", label: "Better Attribution" },
+    ],
+  },
+  {
+    id: "voice-ai-search",
+    title: "Voice, Conversational & AI Search Optimisation",
+    shortTitle: "Voice & AI Search",
+    description: "Optimize for voice assistants, chatbots, and AI-powered search",
+    longDescription: "We help you prepare for the future of search by optimizing for voice assistants, conversational interfaces, and AI-generated search results. Stay ahead as search evolves beyond traditional text queries.",
+    icon: MessageSquare,
+    color: "from-teal-500 to-emerald-500",
+    servicePoints: [
+      { id: "voice-search-optimization", title: "Voice Search Optimization", description: "Optimize content for voice queries on Alexa, Google Assistant, and Siri", icon: MessageSquare },
+      { id: "conversational-ai-design", title: "Conversational AI Experience Design", description: "Design natural conversational flows for chatbots and voice interfaces", icon: Bot },
+      { id: "ai-search-sge", title: "AI Search (SGE/AIO) Optimization", description: "Prepare content for AI-generated search results and featured answers", icon: Sparkles },
+      { id: "structured-data-voice", title: "Structured Data for Voice & AI", description: "Implement schema markup optimized for voice and AI search interpretation", icon: Database },
+      { id: "faq-qa-optimization", title: "FAQ & Q&A Content Optimization", description: "Create question-answer content that ranks in voice and AI search results", icon: FileText },
+      { id: "local-voice-search", title: "Local Voice Search Optimization", description: "Optimize for \"near me\" and location-based voice queries", icon: Map },
+      { id: "conversational-content", title: "Conversational Content Strategy", description: "Develop content strategies aligned with natural language patterns", icon: Lightbulb },
+      { id: "voice-commerce", title: "Voice Commerce Optimization", description: "Enable and optimize voice-based purchasing experiences", icon: ShoppingCart },
+      { id: "ai-citation-optimization", title: "AI Citation & Source Optimization", description: "Optimize to become a cited source in AI-generated answers", icon: Award },
+      { id: "voice-analytics", title: "Voice & AI Search Analytics", description: "Track and analyze voice search performance and AI search visibility", icon: LineChart },
+    ],
+    benefits: [
+      "Future-proof for AI search",
+      "Voice assistant visibility",
+      "Conversational engagement",
+      "AI search citations",
+    ],
+    stats: [
+      { value: "50%", label: "Voice Query Growth" },
+      { value: "3x", label: "AI Search Visibility" },
+      { value: "78%", label: "Conversation Rate" },
+    ],
+  },
+  {
+    id: "ai-governance",
+    title: "AI Governance, Ethics & Risk Management",
+    shortTitle: "AI Governance & Ethics",
+    description: "Implement responsible AI with proper governance and risk management",
+    longDescription: "We help organizations implement AI responsibly with comprehensive governance frameworks, ethical guidelines, and risk management protocols. Ensure your AI initiatives are transparent, fair, and compliant.",
+    icon: Shield,
+    color: "from-rose-500 to-pink-500",
+    servicePoints: [
+      { id: "ai-governance-framework", title: "AI Governance Framework Development", description: "Establish comprehensive governance structures for AI development and deployment", icon: Shield },
+      { id: "ethical-ai-assessment", title: "Ethical AI Assessment & Auditing", description: "Evaluate AI systems for bias, fairness, and ethical compliance", icon: CheckCircle },
+      { id: "ai-risk-management", title: "AI Risk Assessment & Mitigation", description: "Identify and mitigate risks associated with AI implementation", icon: Target },
+      { id: "ai-compliance", title: "AI Regulatory Compliance", description: "Ensure compliance with AI regulations (EU AI Act, industry standards)", icon: FileText },
+      { id: "bias-detection", title: "Bias Detection & Remediation", description: "Detect and address algorithmic bias in AI models and outputs", icon: Search },
+      { id: "ai-transparency", title: "AI Transparency & Explainability", description: "Implement explainable AI practices for stakeholder trust", icon: Eye },
+      { id: "data-governance-ai", title: "Data Governance for AI", description: "Establish data governance practices that support responsible AI", icon: Database },
+      { id: "ai-policy-development", title: "AI Policy & Standards Development", description: "Develop internal AI policies and standards aligned with best practices", icon: Lightbulb },
+      { id: "ai-training-education", title: "AI Ethics Training & Education", description: "Train teams on responsible AI practices and ethical considerations", icon: Users },
+      { id: "ai-incident-response", title: "AI Incident Response Planning", description: "Develop protocols for responding to AI failures or ethical incidents", icon: Zap },
+    ],
+    benefits: [
+      "Responsible AI implementation",
+      "Regulatory compliance",
+      "Reduced AI risk",
+      "Stakeholder trust",
+    ],
+    stats: [
+      { value: "100%", label: "Compliance Rate" },
+      { value: "60%", label: "Risk Reduction" },
+      { value: "95%", label: "Bias Detection" },
+    ],
+  },
+];
 
 // DollarSign import for use in components
 export { DollarSign };
